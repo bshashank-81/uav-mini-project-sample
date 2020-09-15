@@ -1,7 +1,7 @@
 import React from "react";
 import LoginForm from "./loginForm";
 import { makeStyles, Typography, Grid, Paper } from "@material-ui/core";
-// import backgroundImage from "../../../public/assets/images/backgroundImage.jpg";
+import SideBar from "../../landingPage-view/components/sideBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,36 +42,39 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const classes = useStyles();
   return (
-    <Grid container component="main" className={classes.root}>
-      <Grid item xs={false} sm={12} md={12} className={classes.image}>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          className={classes.gridContainer}
-        >
+    <div>
+      <SideBar />
+      <Grid container component="main" className={classes.root}>
+        <Grid item xs={false} sm={12} md={12} className={classes.image}>
           <Grid
-            pr={178}
-            mt={251}
-            pb={249}
-            item
-            sm={4}
-            md={3}
-            component={Paper}
-            elevation={6}
-            className={classes.formBox}
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            className={classes.gridContainer}
           >
-            <Typography className={classes.heading} variant="h5">
-              {"Log in"}
-            </Typography>
-            <div className={classes.paper}>
-              <LoginForm />
-            </div>
+            <Grid
+              pr={178}
+              mt={251}
+              pb={249}
+              item
+              sm={4}
+              md={3}
+              component={Paper}
+              elevation={6}
+              className={classes.formBox}
+            >
+              <Typography className={classes.heading} variant="h5">
+                {"Log in"}
+              </Typography>
+              <div className={classes.paper}>
+                <LoginForm />
+              </div>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 };
 
