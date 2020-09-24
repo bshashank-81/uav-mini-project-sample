@@ -1,9 +1,8 @@
 import React from "react";
-import Map from "../../mapPage-view/components/map";
-import { makeStyles, Typography } from "@material-ui/core";
+import Map from "../components/map";
 import SideBar from "../../landingPage-view/components/sideBar";
 
-const HomePage = () => {
+const MapPage = () => {
   return (
     <div>
       <SideBar />
@@ -12,4 +11,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default MapPage;

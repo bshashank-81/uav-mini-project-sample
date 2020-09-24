@@ -1,14 +1,14 @@
 import React from "react";
-import Map from "./map";
 import SideBar from "../../landingPage-view/components/sideBar";
+import Map from "../../mapPage-view/components/map";
 
-const MapPage = () => {
+const AddLocation = () => {
   return (
     <div>
       <SideBar />
-      <Map />
+      <Map isAddNewLocation="true" />
     </div>
   );
 };
 
-export default MapPage;
+export default AddLocation;

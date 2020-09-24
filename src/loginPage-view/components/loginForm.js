@@ -14,18 +14,18 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   error: {
-    paddingLeft: "40px",
+    paddingLeft: theme.spacing(5),
     color: "red",
   },
   label: {
     color: "#333333",
     fontSize: "12px",
-    paddingBottom: "8px",
+    paddingBottom: theme.spacing(1),
     float: "left",
     alignSelf: "baseline",
   },
   textField: {
-    paddingBottom: "9px",
+    paddingBottom: theme.spacing(9 / 8),
   },
   button: {
     textTransform: "none",
@@ -45,8 +45,6 @@ const LoginForm = () => {
   const handleChangeInUserName = (event) => {
     event.preventDefault();
     const username = event.target.value;
-    console.log("user is " + username);
-
     setUserName(username);
     setAuthenticationError("");
   };
@@ -73,18 +71,15 @@ const LoginForm = () => {
       body: JSON.stringify(loginObj),
     })
       .then((response) => {
-        console.log(response);
         if (response.ok) {
           response.json().then((result) => {
-            console.log("result:", result);
-
             localStorage.setItem(
               "fake-access-token",
               JSON.stringify({
                 token: result,
               })
             );
-            history.push("/home");
+            history.push("/locations/new");
           });
         } else {
           setAuthenticationError(Constants.INVALID_CREDENTIALS);
@@ -98,7 +93,7 @@ const LoginForm = () => {
   return (
     <form className={classes.form}>
       <FormControl className={classes.textField} fullWidth>
-        <Typography className={classes.label}>
+        <Typography className={classes.label} data-testid="usernameLabel">
           {Constants.USERNAME_LABEL}
         </Typography>
         <TextField
@@ -108,10 +103,11 @@ const LoginForm = () => {
           fullWidth
           onChange={handleChangeInUserName}
           value={username}
+          inputProps={{ "data-testid": "username" }}
         ></TextField>
       </FormControl>
       <FormControl className={classes.textField} fullWidth>
-        <Typography className={classes.label}>
+        <Typography className={classes.label} data-testid="passwordLabel">
           {Constants.PASSWORD_LABEL}
         </Typography>
         <TextField
@@ -121,6 +117,7 @@ const LoginForm = () => {
           type="Text"
           onChange={handleChangeInPassword}
           value={password}
+          inputProps={{ "data-testid": "password" }}
         ></TextField>
       </FormControl>
       <Typography className={classes.error} id="error">
@@ -133,6 +130,7 @@ const LoginForm = () => {
         color="primary"
         fullWidth
         onClick={handleClick}
+        data-testid="signIn"
       >
         {Constants.SIGN_IN}
       </Button>

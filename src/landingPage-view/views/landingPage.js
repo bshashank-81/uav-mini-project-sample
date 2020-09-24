@@ -1,5 +1,5 @@
 import React from "react";
-import SideBar from "./sideBar";
+import SideBar from "../components/sideBar";
 
 const LandingPage = () => {
   return (

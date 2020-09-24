@@ -1,7 +1,8 @@
 import React from "react";
-import LoginForm from "./loginForm";
+import LoginForm from "../components/loginForm";
 import { makeStyles, Typography, Grid, Paper } from "@material-ui/core";
 import SideBar from "../../landingPage-view/components/sideBar";
+import * as Constants from "../../constants";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,14 +26,14 @@ const useStyles = makeStyles((theme) => ({
     height: "755px",
   },
   formBox: {
-    margin: "150px auto 10px auto",
+    margin: theme.spacing(150 / 8, "auto", 1.25, "auto"),
     borderRadius: "16px",
     height: "305px",
     width: "444px",
   },
   heading: {
     float: "left",
-    margin: "19px 0px 0px 30px",
+    margin: theme.spacing(19 / 8, 0, 0, 30 / 8),
     height: "33px",
     width: "70px",
     fontSize: "24px",
@@ -45,7 +46,14 @@ const Login = () => {
     <div>
       <SideBar />
       <Grid container component="main" className={classes.root}>
-        <Grid item xs={false} sm={12} md={12} className={classes.image}>
+        <Grid
+          item
+          xs={false}
+          sm={12}
+          md={12}
+          className={classes.image}
+          data-testid="bgImage"
+        >
           <Grid
             container
             direction="row"
@@ -64,8 +72,12 @@ const Login = () => {
               elevation={6}
               className={classes.formBox}
             >
-              <Typography className={classes.heading} variant="h5">
-                {"Log in"}
+              <Typography
+                className={classes.heading}
+                variant="h5"
+                data-testid="login"
+              >
+                {Constants.LOGIN}
               </Typography>
               <div className={classes.paper}>
                 <LoginForm />

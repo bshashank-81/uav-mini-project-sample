@@ -8,3 +8,12 @@ export const addLocation = (id, lat, lng) => {
     lng: lng,
   };
 };
+
+export const getLocation = (id, lat, lng) => {
+  return {
+    type: actionTypes.GET_LOCATION,
+    id: id,
+    lat: lat,
+    lng: lng,
+  };
+};

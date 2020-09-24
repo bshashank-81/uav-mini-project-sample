@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles, CssBaseline, Typography } from "@material-ui/core";
 import Drawer from "@material-ui/core/Drawer";
 import Divider from "@material-ui/core/Divider";
@@ -6,7 +6,8 @@ import * as Constants from "../../constants";
 import { Link } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import ListItem from "@material-ui/core/ListItem";
-import { useLocation } from "react-router-dom";
+import { useLocation, Redirect } from "react-router-dom";
+import { logout } from "../../utils/index";
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
@@ -32,13 +33,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   listButtons: {
-    marginTop: "20px",
+    marginTop: theme.spacing(2.5),
     fontFamily: "Poppins",
     fontWeight: "600",
   },
   links: {
     color: "#858585",
-    paddingTop: "0px",
+    paddingTop: theme.spacing(0),
     textDecoration: "none",
     fontFamily: "Poppins",
     fontWeight: "600",
@@ -53,6 +54,10 @@ const SideBar = () => {
   const classes = useStyles();
   const location = useLocation();
 
+  const logoutUser = () => {
+    logout();
+    return <Redirect to="/" />;
+  };
   return (
     <div>
       <CssBaseline />
@@ -67,7 +72,7 @@ const SideBar = () => {
           {(location.pathname === "/" || location.pathname === "/maps") && (
             <Link to="/login" className={classes.links}>
               <ListItem button className={classes.listButtons}>
-                <Typography component="div">
+                <Typography component="div" data-testid="login">
                   <Box fontWeight={600}>{Constants.LOGIN}</Box>
                 </Typography>
               </ListItem>
@@ -76,7 +81,7 @@ const SideBar = () => {
           {(location.pathname === "/" || location.pathname === "/login") && (
             <Link to="/maps" className={classes.links}>
               <ListItem button className={classes.listButtons}>
-                <Typography component="div">
+                <Typography component="div" data-testid="maps">
                   <Box fontWeight={600}>{Constants.MAPS}</Box>
                 </Typography>
               </ListItem>
@@ -84,7 +89,8 @@ const SideBar = () => {
           )}
           {(location.pathname === "/locations" ||
             location.pathname === "/home" ||
-            location.pathname === "/locations/new") && (
+            location.pathname === "/locations/new" ||
+            location.pathname.match(/\/locations\/:(\d+)/)) && (
             <Link to="/locations/new" className={classes.links}>
               <ListItem button className={classes.listButtons}>
                 <Typography component="div">
@@ -95,7 +101,8 @@ const SideBar = () => {
           )}
           {(location.pathname === "/locations" ||
             location.pathname === "/home" ||
-            location.pathname === "/locations/new") && (
+            location.pathname === "/locations/new" ||
+            location.pathname.match(/\/locations\/:(\d+)/)) && (
             <Link to="/locations" className={classes.links}>
               <ListItem button className={classes.listButtons}>
                 <Typography component="div">
@@ -106,8 +113,9 @@ const SideBar = () => {
           )}
           {(location.pathname === "/locations" ||
             location.pathname === "/home" ||
-            location.pathname === "/locations/new") && (
-            <Link to="/" className={classes.links}>
+            location.pathname === "/locations/new" ||
+            location.pathname.match(/\/locations\/:(\d+)/)) && (
+            <Link to="/" className={classes.links} onClick={logoutUser}>
               <ListItem button className={classes.listButtons}>
                 <Typography component="div">
                   <Box fontWeight={600}>{Constants.LOGOUT}</Box>
