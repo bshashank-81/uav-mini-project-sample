@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Form component Matches the snapshot 1`] = `
+<form
+  className="makeStyles-form-1"
+>
+  <div
+    className="MuiFormControl-root makeStyles-textField-4 MuiFormControl-fullWidth"
+  >
+    <p
+      className="MuiTypography-root makeStyles-label-3 MuiTypography-body1"
+      data-testid="usernameLabel"
+    >
+      Username
+    </p>
+    <div
+      className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+    >
+      <div
+        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoFocus={false}
+          className="MuiInputBase-input MuiInput-input"
+          data-testid="username"
+          disabled={false}
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Enter username"
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="MuiFormControl-root makeStyles-textField-4 MuiFormControl-fullWidth"
+  >
+    <p
+      className="MuiTypography-root makeStyles-label-3 MuiTypography-body1"
+      data-testid="passwordLabel"
+    >
+      Password
+    </p>
+    <div
+      className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+    >
+      <div
+        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoFocus={false}
+          className="MuiInputBase-input MuiInput-input"
+          data-testid="password"
+          disabled={false}
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Enter password"
+          required={true}
+          type="Text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <p
+    className="MuiTypography-root makeStyles-error-2 MuiTypography-body1"
+    data-testid="error"
+    id="error"
+  />
+  <button
+    className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-5 MuiButton-containedPrimary MuiButton-fullWidth"
+    data-testid="signIn"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <span
+      className="MuiButton-label"
+    >
+      Sign in
+    </span>
+  </button>
+</form>
+`;
